@@ -20,8 +20,7 @@ def input_data(arg):
     while True:
         player_answer = input(f"Enter xy:")
         if all([(len(player_answer)) == 2,
-            (player_answer[0] and player_answer[1]) in '012']):
-            a, b = int(player_answer[0]), int(player_answer[1])
+                (0 > a > 2 or 0 > a > 2)]):
             if board[a][b] not in 'X0':
                 board[a][b] = arg
                 break
