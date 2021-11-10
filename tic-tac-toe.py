@@ -19,21 +19,22 @@ def player_moves(arg):
 def input_data(arg):
     while True:
         player_answer = input(f"Enter xy:")
-        if player_answer:
-            a, b = int(player_answer[0]), int(player_answer[1])
-            if all([(len(player_answer)) == 2,
-                    (0 > a > 2 or 0 > a > 2)]):
+        if player_answer and len(player_answer) == 2:
+            if all([player_answer[0] in '012',
+                    player_answer[1] in '012',
+                    player_answer[0].isdigit(), player_answer[1].isdigit()]):
+                a, b = int(player_answer[0]), int(player_answer[1])
                 if board[a][b] not in 'X0':
                     board[a][b] = arg
                     break
                 else:
-                    print('Эта клеточка уже занята')
+                    print('This cell is already taken!')
                     continue
             else:
-                print('Некорректный ввод!')
+                print('Invalid input!')
                 continue
         else:
-            print('Некорректный ввод!')
+            print('Invalid input!')
             continue
 
 def check_win(arg):
@@ -61,11 +62,11 @@ def main():
         counter += 1
         if counter > 4:
             if check_win(board):
-                print('Выиграл Player1!' if counter % 2 != 0 else 'Выиграл Player2!')
+                print('Player_1 wins!' if counter % 2 != 0 else 'Player_2 wins!')
                 board_view()
                 break
         if counter == 9:
-            print('Ничья!')
+            print('Dead heat!')
             break
 
 start_game()
