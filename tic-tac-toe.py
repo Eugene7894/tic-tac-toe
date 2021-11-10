@@ -19,6 +19,7 @@ def player_moves(arg):
 def input_data(arg):
     while True:
         player_answer = input(f"Enter xy:")
+        a, b = int(player_answer[0]), int(player_answer[1])
         if all([(len(player_answer)) == 2,
                 (0 > a > 2 or 0 > a > 2)]):
             if board[a][b] not in 'X0':
