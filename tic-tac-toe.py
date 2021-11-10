@@ -19,14 +19,18 @@ def player_moves(arg):
 def input_data(arg):
     while True:
         player_answer = input(f"Enter xy:")
-        a, b = int(player_answer[0]), int(player_answer[1])
-        if all([(len(player_answer)) == 2,
-                (0 > a > 2 or 0 > a > 2)]):
-            if board[a][b] not in 'X0':
-                board[a][b] = arg
-                break
+        if player_answer:
+            a, b = int(player_answer[0]), int(player_answer[1])
+            if all([(len(player_answer)) == 2,
+                    (0 > a > 2 or 0 > a > 2)]):
+                if board[a][b] not in 'X0':
+                    board[a][b] = arg
+                    break
+                else:
+                    print('Эта клеточка уже занята')
+                    continue
             else:
-                print('Эта клеточка уже занята')
+                print('Некорректный ввод!')
                 continue
         else:
             print('Некорректный ввод!')
