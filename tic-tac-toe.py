@@ -2,7 +2,7 @@ board = [['-'for i in range(3)]for j in range(3)]
 
 def start_game():
     print('Welcome to tic-tac-toe!')
-    print('Player1 - X\nPlayer2 - 0')
+    print('Player_1 - X\nPlayer_2 - 0')
     print('x - row`s number')
     print('y - column`s number')
 
@@ -14,11 +14,11 @@ def board_view():
     print('-------------')
 
 def player_moves(arg):
-    print("Player1 moves" if arg == "X" else "Player2 moves")
+    print("Player_1 moves" if arg == "X" else "Player_2 moves")
 
 def input_data(arg):
     while True:
-        player_answer = input(f"Enter xy:")
+        player_answer = input(f"Enter numbers of xy(merged):")
         if player_answer and len(player_answer) == 2:
             if all([player_answer[0] in '012',
                     player_answer[1] in '012',
@@ -45,7 +45,7 @@ def check_win(arg):
         if all([arg[each[0][0]][each[0][1]] not in '-',
                 arg[each[1][0]][each[1][1]] not in '-',
                 arg[each[2][0]][each[2][1]] not in '-']):
-            if (arg[each[0][0]][each[0][1]] == arg[each[1][0]][each[1][1]] == arg[each[2][0]][each[2][1]]):
+            if arg[each[0][0]][each[0][1]] == arg[each[1][0]][each[1][1]] == arg[each[2][0]][each[2][1]]:
                 return True
     return False
 
